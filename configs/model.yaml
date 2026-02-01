@@ -1,0 +1,52 @@
+# Crop-Water-Soil Multi-Task Model Configuration
+
+model:
+  name: "crop_water_soil_mtl"
+  shared_encoder:
+    type: "lstm"  # lstm | cnn | transformer
+    input_dim: 64
+    hidden_dim: 128
+    num_layers: 2
+    dropout: 0.2
+    bidirectional: false
+
+  heads:
+    crop:
+      hidden_dims: [64, 32]
+      output_dim: 1
+      activation: "relu"
+    soil:
+      hidden_dims: [64, 32]
+      output_dim: 4  # NPK + organic carbon
+      activation: "relu"
+    water:
+      hidden_dims: [64, 32]
+      output_dim: 1
+      activation: "relu"
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 1.0e-5
+  early_stopping_patience: 15
+
+  # Multi-task loss weights
+  loss_weights:
+    crop: 0.4
+    soil: 0.3
+    water: 0.3
+  constraint_penalty_weight: 0.1
+
+data:
+  sequence_length: 24  # time steps (e.g., months)
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  temporal_cv_folds: 5
+
+constraints:
+  enabled: true
+  groundwater_rainfall_coupling: 0.5
+  soil_crop_coupling: 0.3
+  et_limit_penalty: 0.2
