@@ -1,4 +1,4 @@
-# 🌾 Crop–Water–Soil Interaction Modeling Platform
+Crop–Water–Soil Interaction Modeling Platform
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
@@ -11,18 +11,17 @@
 
 ---
 
-## 🚀 Key Highlights
+Key Highlights
 
 - **Joint modeling** of crop, soil, and water systems using multi-task learning
 - **Integration of real-world** agricultural & hydrological domain constraints
 - **Satellite + climate driven** time-series modeling
 - **Interpretable predictions** for sustainable planning
 
->  *If recruiters stop here → you still win.*
+
 
 ---
-
-## 📌 Problem Statement
+ Problem Statement
 
 Agricultural sustainability depends on tightly coupled interactions between crop health, soil nutrients, and groundwater resources. Existing machine learning approaches model these components independently, often producing unrealistic or misleading recommendations.
 
@@ -35,7 +34,7 @@ This project addresses the problem by designing a **domain-aware multi-task deep
 
 ---
 
-## 💡 Solution Overview
+##  Solution Overview
 
 We propose a multi-task learning framework that:
 1. Learns **shared representations** from satellite, soil, weather, and water data
@@ -45,7 +44,7 @@ We propose a multi-task learning framework that:
 
 ---
 
-## 🧠 System Architecture
+##  System Architecture
 
 ![System Architecture](docs/architecture.svg)
 
@@ -90,7 +89,6 @@ data/
 - **Task-Specific Heads**: Separate prediction heads for each target
 - **Multi-Task Loss**: Weighted combination with constraint penalties
 
- Domain Constraints (What Makes This 1-Step Ahead)
 
 | Constraint | Rationale |
 |------------|-----------|
@@ -118,7 +116,7 @@ data/
 
 ---
 
-## 🔍Explainability
+## Explainability
 
 - **Feature attribution** per task using SHAP
 - **Temporal contribution** analysis
@@ -191,7 +189,7 @@ Crop-Water-Soil-Interaction-Platform/
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ```bash
 # Clone and setup
